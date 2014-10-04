@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://bootswatch.com/yeti/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+
+  <% # Replace Hurtig Technologies with Config Value %>
+  <title>System Events | Hurtig Technologies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="../bower_components/html5shiv/dist/html5shiv.js"></script>
+  <script src="../bower_components/respond/dest/respond.min.js"></script>
+  <![endif]-->
+  <style type="text/css"></style>
+  <style type="text/css"></style>
+</head>
+<body>
+
+<% # Template this in new partial view %>
+<% @levels = Event.last_events_per_source.group(:level).count
+   @total = @levels.values.sum / 100.0
+   @a = {"ok" => 0, "info" => 0, "warning" => 0, "error" => 0}
+   @levels = @a.merge @levels
+%>
+<div class="progress progress-top">
+  <div class="progress-bar progress-bar-success" style="width: <%= @levels["ok"] / @total %>%"><%= ( @levels["ok"] / @total ).round %>% OK</div>
+  <div class="progress-bar progress-bar-warning" style="width: <%= @levels["info"] / @total %>%"><%= ( @levels["info"] / @total ).round %>% Informational</div>
+  <div class="progress-bar progress-bar-warning" style="width: <%= @levels["warning"] / @total %>%"><%= ( @levels["warning"] / @total ).round %>% Warning</div>
+  <div class="progress-bar progress-bar-danger" style="width: <%= @levels["error"] / @total %>%"><%= ( @levels["error"] / @total ).round %>% Error</div>
+</div>
+<div class="navbar navbar-default navbar-fixed-top" style="top:20px;">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">HurtigTech Stack</a>
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse" id="navbar-main">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Events <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="themes">
+            <li><%= link_to 'All Events', events_path %></li>
+            <li><%= link_to 'New Event', new_event_path %></li>
+          </ul>
+        </li>
+        <li>
+          <%= link_to 'Sources', sources_path %>
+        </li>
+        <li>
+          <%= link_to 'Tags', tags_path %>
+        </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Settings <span class="caret"></span></a>
+          <ul class="dropdown-menu" aria-labelledby="download">
+            <li><a href="#">General</a></li>
+            <li><a href="#">Authentication</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/login" target="_blank">Login</a></li>
+
+        <li><a href="http://hurtigtechnologies.com/" target="_blank">Hurtig Technologies</a></li>
+        <li><a href="https://github.com/edhurtig/" target="_blank">GitHub</a></li>
+      </ul>
+
+    </div>
+  </div>
+</div>
+<div class="container">
+
+  <%= yield %>
+  <div class="push"></div>
+</div>
+
+<footer class="well">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <ul class="list-unstyled">
+          <li class="pull-right"><a href="#top">Back to top</a></li>
+
+          <li><a href="http://hurtigtechnologies.com">Hurtig Technologies</a> | <a href="http://edhurtig.com/">Eddie Hurtig</a> | <a href="https://github.com/edhurtig/">GitHub</a></li>
+        </ul>
+        <p>Developed by <a href="http://edhurtig.com/" rel="nofollow">Eddie Hurtig</a>.</p>
+        <p>Source Code: <a href="https://github.com/edhurtig/">Github</a>.</p>
+        <p>Thanks to <a href="http://getbootstrap.com/" rel="nofollow">Bootstrap</a> and <a href="http://bootswatch.com">BootSwatch</a>. Icons from <a href="http://fortawesome.github.io/Font-Awesome/" rel="nofollow">Font Awesome</a>. Web fonts from <a href="http://www.google.com/webfonts" rel="nofollow">Google</a>.</p>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+<script src="./Bootswatch  Yeti_files/jquery-1.10.2.min.js"></script>
+<script src="./Bootswatch  Yeti_files/bootstrap.min.js"></script>
+<script src="./Bootswatch  Yeti_files/bootswatch.js"></script>
+
+
+<div id="waltzIsInstalled"></div>
+
+</body>
+</html>
+
+
+

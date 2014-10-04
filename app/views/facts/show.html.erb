@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fact.name %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @fact.data %>
+</p>
+
+<hr>
+<h3>Event Details</h3>
+<p>
+  <strong>Event:</strong>
+  <%= @fact.event %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @event.content %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @event.level %>
+</p>
+
+<p>
+  <strong>Source:</strong>
+  <%= @event.source %>
+</p>
+
+<%= link_to 'Edit', edit_fact_path(@fact) %> |
+<%= link_to 'Back', facts_path %>

@@ -1,0 +1,71 @@
+<div class="page-header" id="banner">
+
+  <div class="row">
+    <div class="col-lg-6">
+      <h1>Events</h1>
+      <p class="lead">Events reported by sources via the HTTP REST API</p>
+    </div>
+
+
+    <div class="col-lg-6" style="padding: 15px 15px 0 15px;">
+      <div class="well sponsor">
+        <% # Foreman Statistics Partial View %>
+        <p>Foreman Statistics Placeholder</p>
+        <p>Foreman Statistics Placeholder</p>
+      </div>
+    </div>
+    <% # render actions here
+       # <div class="col-lg-6" style="padding: 15px 15px 0 15px;">
+       #   <div class="well sponsor">
+       #     <a href="http://srv.buysellads.com/direct/click/track/yes/x/G6NDC27ICWAI627UCWALYK7UCKBILKJMCT7I5" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;banner&#39;, &#39;click&#39;, &#39;treehouse&#39;]);" rel="nofollow" target="_blank">
+       #             <span style="float: left; margin-right: 15px;">
+       #               <img src="http://srv.buysellads.com/direct/image/track/yes/x/G6NDC27ICWAI627UCWALYK7UCKBILKJMCT7I5" onload="_gaq.push([&#39;_trackEvent&#39;, &#39;banner&#39;, &#39;impression&#39;, &#39;treehouse&#39;]);" width="175" height="135">
+       #             </span>
+       #     </a>
+       #     <a href="http://srv.buysellads.com/direct/click/track/yes/x/G6NDC27ICWAI627UCWALYK7UCKBILKJMCT7I5" onclick="_gaq.push([&#39;_trackEvent&#39;, &#39;banner&#39;, &#39;click&#39;, &#39;treehouse&#39;]);" rel="nofollow" target="_blank">
+       #       <h4 style="margin-bottom: 0.4em;">Treehouse</h4>
+       #       <div class="clearfix">
+       #         <p>Learn Web Design, Coding, Mobile App Development &amp; More.</p>
+       #         <p>Start Learning for Free!</p>
+       #       </div>
+       #     </a>
+       #   </div>
+       # </div>
+    %>
+  </div>
+</div>
+<div class="row">
+  <%= link_to 'New Source', new_source_path, class:"btn btn-success btn-sm pull-right" %>
+</div>
+<div class="row">
+  <table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Port</th>
+      <th>Kind</th>
+      <th>Version</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sources.each do |source| %>
+      <tr>
+        <td><%= source.name %></td>
+        <td><%= source.address %></td>
+        <td><%= source.port %></td>
+        <td><%= source.kind %></td>
+        <td><%= source.version %></td>
+        <td><%= link_to 'Show', source %></td>
+        <td><%= link_to 'Edit', edit_source_path(source) %></td>
+        <td><%= link_to 'Destroy', source, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>
