@@ -21,7 +21,7 @@
 </head>
 <body>
 
-<% # Template this in new partial view %>
+<% # Template this in new shared view %>
 <% @levels = Event.last_events_per_source.group(:level).count
    @total = @levels.values.sum / 100.0
    @a = {"ok" => 0, "info" => 0, "warning" => 0, "error" => 0}
@@ -29,7 +29,7 @@
 %>
 <div class="progress progress-top">
   <div class="progress-bar progress-bar-success" style="width: <%= @levels["ok"] / @total %>%"><%= ( @levels["ok"] / @total ).round %>% OK</div>
-  <div class="progress-bar progress-bar-warning" style="width: <%= @levels["info"] / @total %>%"><%= ( @levels["info"] / @total ).round %>% Informational</div>
+  <div class="progress-bar progress-bar-info" style="width: <%= @levels["info"] / @total %>%"><%= ( @levels["info"] / @total ).round %>% Informational</div>
   <div class="progress-bar progress-bar-warning" style="width: <%= @levels["warning"] / @total %>%"><%= ( @levels["warning"] / @total ).round %>% Warning</div>
   <div class="progress-bar progress-bar-danger" style="width: <%= @levels["error"] / @total %>%"><%= ( @levels["error"] / @total ).round %>% Error</div>
 </div>
@@ -63,6 +63,8 @@
           <ul class="dropdown-menu" aria-labelledby="download">
             <li><a href="#">General</a></li>
             <li><a href="#">Authentication</a></li>
+            <li><a href="#">Foreman</a></li>
+
           </ul>
         </li>
       </ul>
