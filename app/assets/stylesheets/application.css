@@ -49,3 +49,6 @@ footer {
     height: 150px;
 }
 
+.alert_template {
+    display: none;
+}
