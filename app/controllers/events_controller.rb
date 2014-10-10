@@ -15,17 +15,18 @@ class EventsController < ApplicationController
   # GET /events/new
   def new
     @event = Event.new
+    @sources = Source.all
   end
 
   # GET /events/1/edit
   def edit
+    @sources = Source.all
   end
 
   # POST /events
   # POST /events.json
   def create
     @event = Event.new(event_params)
-
     respond_to do |format|
       if @event.save
         # @facts = params[:facts]
