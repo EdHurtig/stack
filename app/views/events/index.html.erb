@@ -25,6 +25,7 @@
       <th>Content</th>
       <th>Level</th>
       <th>Source</th>
+      <th>By</th>
       <th></th>
       <th></th>
       <th></th>
@@ -38,6 +39,7 @@
         <td><%= event.content %></td>
         <td><%= event.level %></td>
         <td><%= event.source_name %></td>
+        <td><%= event.by %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
