@@ -15,6 +15,15 @@
 <%= render 'shared/alerts' %>
 
 <div class="row">
+  <%= check_box('bulk_check_all', false, { class: 'bulk_check_all' }) %>
+  <label for="bulk_select">
+    Bulk Actions
+
+      <select id="bulk_select" name="bulk_select" class="bulk_select">
+        <option value="delete" data-endpoint="/events/#.json" data-method="delete">Delete</option>
+      </select>
+  </label>
+  <button class="bulk_apply">Apply</button>
   <%= link_to 'New Event', new_event_path, class:"btn btn-success btn-sm pull-right" %>
 </div>
 <div class="row">
@@ -34,7 +43,8 @@
 
   <tbody>
     <% @events.each do |event| %>
-      <tr class="<%= event.style_class %>">
+      <tr class="data-row <%= event.style_class %>">
+        <td><%= check_box('bulk_check', event.id, { class: 'bulk_check' }) %></td>
         <td><%= event.title %></td>
         <td><%= event.content %></td>
         <td><%= event.level %></td>
