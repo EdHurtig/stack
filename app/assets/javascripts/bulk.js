@@ -36,15 +36,15 @@
 
         $.each(ids, function (i, id) {
             $.ajax({
-                url: action_endpoint.replace(/#/g, id),
+                url: action_endpoint.replace(/#/g, 'ids[]=' + ids.join('&ids[]=')),
                 method: method,
                 success: function(msg) {
-                    Alerts.success('Deleted Event' + id, '', {timeout: 3000})
+                    Alerts.success('Deleted ' + ids.length +  '  Events', {timeout: 3000})
                     $('#bulk_check_' + id).parents('.data-row').fadeOut()
                 },
                 error: function(msg) {
                     console.log(msg);
-                    Alerts.error('Failed to Delete Event ' + id, 'Ajax Call to ' + action_endpoint.replaceAll('#',id) + '.  See Console for Log');
+                    Alerts.error('Failed to Delete Events', 'Ajax Call to ' + action_endpoint.replaceAll('#',id) + '.  See Console for Log');
                 }
 
             });
