@@ -75,6 +75,16 @@ class EventsController < ApplicationController
     end
   end
 
+  # DELETE /events
+  # DELETE /events.json
+  def destroy_many
+    Event.where(:id => params[:ids]).destroy_all
+    respond_to do |format|
+      format.html { redirect_to events_url }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
