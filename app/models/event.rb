@@ -1,15 +1,15 @@
 class Event < ActiveRecord::Base
-  @_source = ""
+  @_source = nil
 
   def style_class
-    if "error" == level or "critical" == level or "fail" == level
-       "danger"
-    elsif  "warning" == level
-       "warning"
-    elsif "info" == level or "notice" == level
-       "info"
-    elsif "success" == level or "ok" == level
-       "success"
+    if 'error' == level or 'critical' == level or 'fail' == level
+       'danger'
+    elsif  'warning' == level
+       'warning'
+    elsif 'info' == level or 'notice' == level
+       'info'
+    elsif 'success' == level or 'ok' == level
+       'success'
     end
   end
 
@@ -18,11 +18,13 @@ class Event < ActiveRecord::Base
   end
 
   def self.last_events_per_source
-    @event_ids = Event.select("MAX(id) as id").group(:source).collect(&:id)
+    @event_ids = Event.select('MAX(id) as id').group(:source).collect(&:id)
 
     Event.order(created_at: :desc).where(:id => @event_ids)
 
   end
+
+
 
   # Returns the name of the source that reported this event
   # Returns empty string if there is no source linked to the event
