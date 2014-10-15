@@ -20,11 +20,11 @@
     Bulk Actions
 
       <select id="bulk_select" name="bulk_select" class="bulk_select">
-        <option value="delete" data-endpoint="/events/#.json" data-method="delete">Delete</option>
+        <option value="delete" data-endpoint="/events.json" data-method="delete">Delete</option>
       </select>
   </label>
   <button class="bulk_apply">Apply</button>
-  <%= link_to 'New Event', new_event_path, class:"btn btn-success btn-sm pull-right" %>
+  <%= link_to 'New Event', new_event_path, class:'btn btn-success btn-sm pull-right' %>
 </div>
 <div class="row">
 <table class="table table-striped table-hover">
