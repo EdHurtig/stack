@@ -15,7 +15,7 @@
 <%= render 'shared/alerts' %>
 
 <div class="row">
-  <%= check_box('bulk_check_all', false, { class: 'bulk_check_all' }) %>
+
   <label for="bulk_select">
     Bulk Actions
 
@@ -30,6 +30,8 @@
 <table class="table table-striped table-hover">
   <thead>
     <tr>
+      <th><%= check_box('bulk_check_all', false, { class: 'bulk_check_all' }) %></th>
+      <th>Time</th>
       <th>Title</th>
       <th>Content</th>
       <th>Level</th>
@@ -45,6 +47,7 @@
     <% @events.each do |event| %>
       <tr class="data-row <%= event.style_class %>">
         <td><%= check_box('bulk_check', event.id, { class: 'bulk_check' }) %></td>
+        <td><%= event.created_at %></td>
         <td><%= event.title %></td>
         <td><%= event.content %></td>
         <td><%= event.level %></td>
